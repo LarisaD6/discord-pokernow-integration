@@ -1,0 +1,9 @@
+discord-poker
+├─ package.json
+├─ .env
+├─ src
+│  ├─ index.js
+│  ├─ db.js
+│  └─ commands
+│     ├─ leaderboard.js
+│     └─ reportWin.js
