@@ -62,6 +62,7 @@ Default blinds
 
 Starting chips
 
+https://youtu.be/a-1Mg0hwe-c
 Permissions (who can create tables)
 
 Logging channel
