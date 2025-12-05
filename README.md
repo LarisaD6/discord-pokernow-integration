@@ -68,41 +68,41 @@ Network updates balance → Bot syncs data back to local database.
 
 ## Installation
 
-┌────────────────────────┐
+
 │ Discord Users │
 │ (players, teams) │
-└───────────┬───────────┘
+
 │
 ▼
-┌────────────────────────┐
+
 │ Discord Bot Node │
 │ - Game Logic │
 │ - SQLite Database │
 │ - Table Generation │
-└───────────┬───────────┘
+
 │
 ▼
-┌────────────────────────┐
+
 │ Linera SDK │
 │ - creating microchains │
 │ - transactions │
 │ - connecting with wallets │
-└───────────┬───────────┘
+
 │
 ▼
-┌────────────────────────┐
+
 │ MetaMask │
 │ - key storage │
 │ - transaction signing │
-└────────────┬──────────┘
+
 │
 ▼
-┌────────────────────────┐
+
 │ Conway Testnet │
 │ - Linera Network │
 │ - Balance Storage │
 │ - Game History │
-└─────────────────────────┘
+
 
 Logging channel
 
