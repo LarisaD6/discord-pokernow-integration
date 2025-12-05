@@ -8,61 +8,101 @@ Players can practice and improve their poker skills for free, while enjoying a c
 
 ---
 
-## Features
-- Create poker tables directly from Discord using bot commands.
-- Manage chips and balances with simple commands.
-- Leaderboards to track player performance.
-- Configurable game settings (blinds, seats, etc.).
-- Community‑friendly integration with Discord channels.
+## Project Architecture
+
+1. User Layer (Discord)
+Players interact through commands:
+
+/wallet — create a wallet
+
+/balance — check balance
+
+/puzzle create or /poker table — create a game
+
+/daily — receive daily rewards
+
+2. Discord Bot Node
+Receives player commands.
+
+Manages game logic (buy-ins, rewards, table creation).
+
+Stores data in a local database (SQLite/Postgres).
+
+Generates transactions for the blockchain.
+
+3. Linera SDK
+Connects the bot to the Linera network.
+
+Creates microchains for players.
+
+Manages transactions (buy-ins, rewards).
+
+Connects the signer (MetaMask or Dynamic).
+
+4. MetaMask (or another wallet)
+Players connect the wallet.
+
+The wallet signs transactions.
+
+Ensures security and control over private keys.
+
+5. Testnet Conway (Linera Protocol)
+Accepts transactions from the SDK.
+
+Stores player balances and game history.
+
+Allows risk-free testing of token mechanics.
+
+🚀 Data Flow
+Player → Discord team.
+
+Bot → Checks local database and generates transaction.
+
+Linera SDK → Calls MetaMask for signature.
+
+Signed transaction → Sent to Testnet Conway.
+
+Network updates balance → Bot syncs data back to local database.
 
 ---
 
 ## Installation
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<your-username>/discord-pokernow-integration.git
-   cd discord-pokernow-integration
-Install dependencies:
-
-bash
-npm install
-(or pip install -r requirements.txt if you use Python)
-
-Configure environment variables:
-
-Create a .env file in the project root.
-
-Add your Discord Bot Token and any required API keys:
-
-Код
-DISCORD_TOKEN=your_token_here
-POKERNOW_API_KEY=optional_if_used
-Usage
-Start the bot:
-
-bash
-npm start
-(or python bot.py depending on your implementation)
-
-In Discord, use commands:
-
-/new-game → creates a new PokerNow table.
-
-/chips check → shows your chip balance.
-
-/chips transfer @user amount → transfers chips (if enabled).
-
-/leaderboard → displays player rankings.
-
-Configuration
-Edit config.json or environment variables to adjust:
-
-Default blinds
-
-Starting chips
-
-Permissions (who can create tables)
+┌───────────────────────┐
+│      Discord Users    │
+│  (игроки, команды)    │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│     Discord Bot Node  │
+│  - логика игр         │
+│  - SQLite база        │
+│  - генерация столов   │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│       Linera SDK      │
+│  - создание microchains│
+│  - транзакции          │
+│  - связь с кошельками  │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│       MetaMask        │
+│  - хранение ключей    │
+│  - подпись транзакций │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│   Testnet Conway      │
+│  - сеть Linera        │
+│  - хранение балансов  │
+│  - история игр        │
+└───────────────────────┘
 
 Logging channel
 
