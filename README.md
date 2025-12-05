@@ -68,41 +68,41 @@ Network updates balance → Bot syncs data back to local database.
 
 ## Installation
 
-┌───────────────────────┐
-│      Discord Users    │
-│  (игроки, команды)    │
+┌────────────────────────┐
+│ Discord Users │
+│ (players, teams) │
 └───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│     Discord Bot Node  │
-│  - логика игр         │
-│  - SQLite база        │
-│  - генерация столов   │
+│
+▼
+┌────────────────────────┐
+│ Discord Bot Node │
+│ - Game Logic │
+│ - SQLite Database │
+│ - Table Generation │
 └───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│       Linera SDK      │
-│  - создание microchains│
-│  - транзакции          │
-│  - связь с кошельками  │
+│
+▼
+┌────────────────────────┐
+│ Linera SDK │
+│ - creating microchains │
+│ - transactions │
+│ - connecting with wallets │
 └───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│       MetaMask        │
-│  - хранение ключей    │
-│  - подпись транзакций │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│   Testnet Conway      │
-│  - сеть Linera        │
-│  - хранение балансов  │
-│  - история игр        │
-└───────────────────────┘
+│
+▼
+┌────────────────────────┐
+│ MetaMask │
+│ - key storage │
+│ - transaction signing │
+└────────────┬──────────┘
+│
+▼
+┌────────────────────────┐
+│ Conway Testnet │
+│ - Linera Network │
+│ - Balance Storage │
+│ - Game History │
+└─────────────────────────┘
 
 Logging channel
 
